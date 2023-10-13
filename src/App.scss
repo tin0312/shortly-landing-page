@@ -1,3 +1,109 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    ;
+}
+.navbar-container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    background-color: white;
+    width: 90%;
+    gap: 1.5em;
+    padding-top: 3em;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-right: auto;
+}
+
+.navbar-login {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.navbar-login button {
+    border-radius: 2em;
+    padding: 0.1em 0.7em;
+}
+
+.cta-container .cta-message-container button {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+.navbar-container .navbar-links a,
+.navbar-login :nth-child(1) {
+    color: #9E9AA8;
+}
+
+.navbar-login :nth-child(2),
+.cta-container .cta-message-container button {
+    background-color: #2BD0D0;
+    color: #FFFFFF;
+}
+
+.navbar-container .navbar-links a:hover,
+.navbar-login :nth-child(1):hover {
+    color: #34313D;
+}
+
+.navbar-login :nth-child(2):hover,
+.cta-container .cta-message-container button:hover {
+    opacity: 0.5;
+}
+
+.cta-container {
+    display: flex;
+    max-width: 90%;
+    margin: 5em auto;
+}
+
+.cta-image-container,
+.cta-message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+
+.cta-message-container {
+    align-items: flex-start !important;
+    gap: 1em;
+}
+
+.message-container-control {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    gap: 1em;
+    width: 90%;
+}
+
+.message-container-control h1 {
+    color: #34313D;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 2em;
+}
+.message-container-control p{
+    color: #9E9AA8;
+}
+
+.cta-image-container img {
+    height: 90%;
+}
