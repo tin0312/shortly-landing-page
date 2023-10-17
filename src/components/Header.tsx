@@ -20,13 +20,16 @@ const Header = () => {
 			<div className="cta-container">
 				<div className="cta-message-container">
 					<div className="message-container-control">
-						<h1>More than just shorter links</h1>
+						<h1>
+							More than just <br />
+							shorter links
+						</h1>
 						<p>
-							Build your brand’s recognition and get detailed insights on how your
-							links are performing.
+							Build your brand’s recognition and get detailed
+							<br /> insights on how your links are performing.
 						</p>
 					</div>
-                    <button>Get Started</button>
+					<button>Get Started</button>
 				</div>
 				<div className="cta-image-container">
 					<img
