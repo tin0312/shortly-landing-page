@@ -12,7 +12,6 @@ html {
 }
 
 .header-container {
-    background-color: gray;
     padding-bottom: 0.1em;
 }
 
@@ -132,17 +131,23 @@ html {
 }
 
 // main-container
+.page-container{
+    position: relative;
+    height: 100vh;
+    min-width: 980px;
+}
 .form-container {
-    // position: absolute;
-    // transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70vw;
-    height: 11vh;
+    width: 70%;
+    min-width: 900px;
+    height: 11%;
     background-color: #3A3054;
     border-radius: 0.5em;
-    margin: 0 auto;
 }
 
 input {
@@ -156,16 +161,13 @@ form {
     align-items: center;
     gap: 2em;
 }
-
-// position the text in place holder to the start 
 input[type="text"]::placeholder {
-    // text-align: left;
     opacity: 0.5;
     font-weight: 500;
 }
 
 .statistic-container {
-    margin-top: 8em;
+    padding-top: 8em;
     text-align: center;
 }
 
@@ -192,17 +194,44 @@ input[type="text"]::placeholder {
 }
 .feature-wrapper {
     display: flex;
+    justify-content: space-between;
     margin: 5em auto;
     width: 90vw;
-    height: 40vh;
+    height: 60vh;
+    gap: 1em;
 }
-
-.feature-container {
-    flex: 1;
-    margin: 10px;
-    padding: 4em;
-    background-color: #f8f9fa;
-    border-radius: 5px;
+.feature-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.icons{
+    position: absolute;
+    top: -2.2em;
+    left: 1.3em;
+    background-color: #3A3054;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+}
+.feature-container.two{
+    align-self: center;
+}
+.feature-container.three{
+    align-self: end;
+}
+.feature-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 26%;
+    padding: 2em 1.2em 2em 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+section{
+   text-align: left;
 }
 .feature-title {
     font-style: normal;
@@ -213,6 +242,7 @@ input[type="text"]::placeholder {
 
 .feature-intro {
     font-size: 1em;
-    line-height: 1.5;
+    line-height: 1.8em;
     color: #9E9AA8;
+    font-weight: 500;
 }
