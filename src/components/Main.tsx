@@ -1,4 +1,5 @@
 import React from "react"
+import * as Images from "../assets/images"
 
 const Main = () => {
 	// const [url, setUrl] = useState()
@@ -12,13 +13,13 @@ const Main = () => {
 		<div className="main-container">
 			<div className="section-container">
 				<div className="form-container">
-					<form onSubmit={handleSubmit}>
+					<form>
 						<input
 							type="text"
 							name="url"
 							id="url"
-							value={url}
-							onChange={getUrl}
+							// value={url}
+							// onChange={getUrl}
 							placeholder="Shorten a link here..."
 						/>
 						<button type="submit">Shorten it!</button>
@@ -35,30 +36,38 @@ const Main = () => {
 
 					<div className="feature-wrapper">
 						<div className="feature-container one">
+							<img src={Images.brand} className="icons" alt="brand" />
 							<section>
 								<h4 className="feature-title">Brand Recognition</h4>
 								<p className="feature-intro">
-									Boost your brand recognition with each click. Generic links don’t
-									mean a thing. Branded links help instil confidence in your content.
+									Boost your brand recognition with
+									<br /> each click. Generic links don’t mean a <br /> thing. Branded
+									links help instil <br /> confidence in your content.
 								</p>
 							</section>
 						</div>
 						<div className="feature-container two">
+							<img src={Images.details} className="icons" alt="details" />
 							<section>
 								<h4 className="feature-title">Detailed Records</h4>
 								<p className="feature-intro">
-									Gain insights into who is clicking your links. Knowing when and
-									where people engage with your content helps inform better
-									decisions.
+									Gain insights into who is clicking your
+									<br /> links. Knowing when and where
+									<br /> people engage with your content
+									<br /> helps inform better decisions.
 								</p>
 							</section>
 						</div>
 						<div className="feature-container three">
+							<img src={Images.customizable} className="icons" alt="customizable" />
 							<section>
 								<h4 className="feature-title">Fully Customizable</h4>
 								<p className="feature-intro">
-									Improve brand awareness and content discoverability through
-									customizable links, supercharging audience engagement.
+									Improve brand awareness and
+									<br /> content discoverability through
+									<br />
+									customizable links, supercharging
+									<br /> audience engagement.
 								</p>
 							</section>
 						</div>
