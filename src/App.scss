@@ -173,6 +173,7 @@ input[type="text"]::placeholder {
 .statistic-container {
     padding-top: 8em;
     text-align: center;
+    background-color: #EFF1F7;
 }
 
 .statistic-container h3 {
@@ -181,46 +182,66 @@ input[type="text"]::placeholder {
 }
 
 .statistic-container p {
+    padding-top: 1em;
     color: #9E9AA8;
     font-weight: 500;
 }
 
-.secondary-cta-container {
-    text-align: center;
-    background-color: #4B3F6B;
-    color: #FFF;
-    padding-top: 2em;
-    padding-bottom: 2em;
-}
-
-.secondary-cta-container h3 {
-    margin-bottom: 2em;
-}
-
 .feature-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    margin: 5em auto;
+    margin: 5em auto 0;
     width: 70%;
     min-width: 880px;
-    height: 60vh;
-    gap: 1em;
+    height: 50vh;
+    min-height: 600px;
 }
 
 .feature-container {
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 26%;
+    min-width: 200px;
+    min-height: 320px;
+    padding: 2em 1.2em 2em 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+}
+
+.feature-container:nth-child(2)::before,
+.feature-container:nth-child(2)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    background-color: #2BD0D0;
+    height: 0.5em;
+    width: 42.2%;
+    transform: translateY(-50%);
+}
+
+.feature-container:nth-child(2)::before {
+    left: 100%;
+}
+
+.feature-container:nth-child(2)::after {
+    right: 100%;
 }
 
 .icons {
     position: absolute;
-    top: -2.6em;
+    top: -2.3em;
     left: 1em;
     background-color: #3A3054;
-    padding: 0.2em;
+    padding: 0.6em;
     border-radius: 50%;
+}
+
+.feature-container.one {
+    margin-top: 6em;
 }
 
 .feature-container.two {
@@ -228,18 +249,7 @@ input[type="text"]::placeholder {
 }
 
 .feature-container.three {
-    align-self: end;
-}
-
-.feature-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    width: 26%;
-    min-width: 280px;
-    padding: 2em 1.2em 2em 1.2em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 11em;
 }
 
 section {
@@ -258,4 +268,21 @@ section {
     line-height: 1.8em;
     color: #9E9AA8;
     font-weight: 500;
+}
+
+.secondary-cta-container h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+}
+
+.secondary-cta-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    height: 20vh;
+    background-color: #4B3F6B;
+    color: #FFF;
 }
