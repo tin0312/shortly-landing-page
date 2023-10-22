@@ -302,13 +302,12 @@ section {
 .footer-container{
     display: flex;
     justify-content: space-between;
+    gap: 3em;
     color: #FFF;
     width: 70vw;
+    min-width: 900px;
     padding-top: 4em;
     padding-bottom: 4em;
-}
-.brand-container{
-    margin-right: auto;
 }
 .page-links{
     display: flex;
@@ -339,5 +338,4 @@ section {
 .social-icon-container{
     display: flex; 
     gap: 1.5em; 
-    padding-left: 10em;
 }

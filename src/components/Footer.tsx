@@ -1,4 +1,3 @@
-import React from "react"
 import * as Images from "../assets/images"
 
 const Footer = () => {
