@@ -1,4 +1,3 @@
-import React, { useState } from "react"
 import * as Images from "../assets/images"
 
 const Main = () => {
@@ -13,13 +12,13 @@ const Main = () => {
 		<div className="main-container">
 			<div className="section-container">
 				<div className="form-container">
-					<form onSubmit={handleSubmit}>
+					<form>
 						<input
 							type="text"
 							name="url"
 							id="url"
-							value={url}
-							onChange={getUrl}
+							// value={url}
+							// onChange={getUrl}
 							placeholder="Shorten a link here..."
 						/>
 						<button type="submit">Shorten it!</button>
