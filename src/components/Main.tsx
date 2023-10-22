@@ -1,13 +1,13 @@
 import * as Images from "../assets/images"
 
 const Main = () => {
-	// const [url, setUrl] = useState()
-	// const getUrl = (e: ChangeEvent<HTMLInputElement>) => {
-	// 	setUrl(e.target.value)
-	// }
-	// const handleSubmit = () => {
-	// 	console.log()
-	// }
+	const [url, setUrl] = useState()
+	const getUrl = (e: ChangeEvent<HTMLInputElement>) => {
+		setUrl(e.target.value)
+	}
+	const handleSubmit = () => {
+		console.log()
+	}
 	return (
 		<div className="main-container">
 			<div className="section-container">
@@ -39,8 +39,9 @@ const Main = () => {
 							<section>
 								<h4 className="feature-title">Brand Recognition</h4>
 								<p className="feature-intro">
-									Boost your brand recognition with each click. Generic links don’t
-									mean a thing. Branded links help instil confidence in your content.
+									Boost your brand recognition with
+									<br /> each click. Generic links don’t mean a <br /> thing. Branded
+									links help instil <br /> confidence in your content.
 								</p>
 							</section>
 						</div>
@@ -49,9 +50,10 @@ const Main = () => {
 							<section>
 								<h4 className="feature-title">Detailed Records</h4>
 								<p className="feature-intro">
-									Gain insights into who is clicking your links. Knowing when and
-									where people engage with your content helps inform better
-									decisions.
+									Gain insights into who is clicking your
+									<br /> links. Knowing when and where
+									<br /> people engage with your content
+									<br /> helps inform better decisions.
 								</p>
 							</section>
 						</div>
@@ -60,8 +62,11 @@ const Main = () => {
 							<section>
 								<h4 className="feature-title">Fully Customizable</h4>
 								<p className="feature-intro">
-									Improve brand awareness and content discoverability through
-									customizable links, supercharging audience engagement.
+									Improve brand awareness and
+									<br /> content discoverability through
+									<br />
+									customizable links, supercharging
+									<br /> audience engagement.
 								</p>
 							</section>
 						</div>
