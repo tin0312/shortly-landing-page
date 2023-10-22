@@ -1,5 +1,0 @@
-export { default as logo } from "./logo.svg"
-export { default as workingIllustration } from "./illustration-working.svg"
-export { default as brand } from "./icon-brand-recognition.svg"
-export { default as details } from "./icon-detailed-records.svg"
-export { default as customizable } from "./icon-fully-customizable.svg"
