@@ -1,31 +1,24 @@
 import { useState } from "react"
 import * as Images from "../assets/images"
+import createTinyUrl from "../services/api"
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
 	const [shortUrl, setShortUrl] = useState<string | undefined>(undefined)
 
 	const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
-		e.preventDefault() // prevent the after submission navigation
+		e.preventDefault()
 		const { value } = e.currentTarget
 		setUrl(value)
 	}
 
-	const handleSubmit = () => {
-		const apiUrl = "https://api.shrtco.de/v2/"
-		const requestUrl = `${apiUrl}/shorten?url=${url}`
-		console.log(requestUrl)
-		fetch(requestUrl)
-			.then((response) => response.json())
-			.then((data) => {
-				console.log("API Response:", data)
-				if (data.ok) {
-					setShortUrl(data.result.short_link)
-				} else {
-					console.error("API Error:", data.error)
-				}
-			})
-			.catch((error) => console.error("Fetch Error:", error))
+	const handleSubmit = async () => {
+		try {
+			const result = await createTinyUrl(url)
+			setShortUrl(result)
+		} catch (error) {
+			console.error("Error:", error)
+		}
 	}
 	return (
 		<div className="main-container">
