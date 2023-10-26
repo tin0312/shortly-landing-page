@@ -1,36 +1,37 @@
-const createTinyUrl = async (input) => {
-	const apiUrl = "https://api.tinyurl.com/create"
+const shortenUrl = async (input: string | undefined) => {
+	const apiToken = "Bwnl1I36Eft8Xg2J4YuVBufZoy0HcNwAQdqRPJ8RP7QFA"
+	const apiUrl = "https://shrtlnk.dev/api/v2/link"
+
+	const encodedUrl = input ? encodeURIComponent(input) : undefined
 
 	const body = {
-		url: input,
-		domain: "tinyurl.com",
-		description: "Your shortened URL",
+		url: encodedUrl,
 	}
 
-	const apiToken = "tJpHbsBaJAPqqCiMyDrdqrgs2usuJh2qjpkDMbniCTeye1c3CwPq3XyOvmFT"
-	const urlWithToken = `${apiUrl}?api_token=${apiToken}`
-
 	try {
-		const response = await fetch(urlWithToken, {
+		const response = await fetch(apiUrl, {
 			method: "POST",
 			headers: {
+				"api-key": `${apiToken}`,
+				"Accept": "application/json",
 				"Content-Type": "application/json",
-				Accept: "application/json",
-				Authorization: `Bearer ${apiToken}`,
 			},
 			body: JSON.stringify(body),
 		})
 
+		const data = await response.json()
+
+		console.log("Server response:", data)
+
 		if (response.ok) {
-			const data = await response.json()
-			return data.tiny_url
+			return data.shrtlnk
 		} else {
-			const errorData = await response.json()
-			console.log(errorData.message)
+			console.log("Error status:", response.status)
+			console.log("Error message:", data.message)
 		}
 	} catch (error) {
-		throw new Error(`Fetch Error: ${error.message}`)
+		console.log("Error:", error)
 	}
 }
 
-export default createTinyUrl
+export default shortenUrl

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import * as Images from "../assets/images"
-import createTinyUrl from "../services/api"
+import shortenUrl from "../services/api"
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
@@ -14,10 +14,11 @@ const Main = () => {
 
 	const handleSubmit = async () => {
 		try {
-			const result = await createTinyUrl(url)
+			const result = await shortenUrl(url)
+			console.log("Server response:", result )
 			setShortUrl(result)
 		} catch (error) {
-			console.error("Error:", error)
+			console.log("Error:", error)
 		}
 	}
 	return (

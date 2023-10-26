@@ -10,6 +10,7 @@ The URL landing page introduces to everyone the URL shortening services
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+- [What I learn](#what-I-learn)
 - [Author](#author)
 
 ## Overview
@@ -32,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github Repo]()
-- Live Site URL: [Live Site]()
+- Live Site URL: [Live Site](dev--fabulous-halva-a59029.netlify.app/)
 
 ## My process
 
@@ -42,6 +43,13 @@ Users should be able to:
 - Adding MVP to the page.
 - Styling for the desktop.
 - Responsiveness for mobile.
+## What I learn
+
+- Cross-origin resource sharing (CORS) is a browser security feature that restricts HTTP requests that are initiated from scripts running in the browser. CORS is typically required to build web applications that access APIs hosted on a different domain or origin.
+- It is important to select an API that support CORS integrated in your application.
+- Test API endpoint with cCURL to verify the server's behaviours
+- Typescript declaration files for imported modules.
+- 
 
 ### Built with
 
