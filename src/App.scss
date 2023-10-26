@@ -160,7 +160,21 @@ input {
     padding: 0.4em 25em 0.4em 1em;
     border-radius: 0.5em;
 }
-
+.invalid-input {
+    border: 1px solid red;
+    color: red;
+}
+.invalid-input::placeholder
+{
+    color: red;
+}
+.invalid-text{
+    position: absolute;
+    color: red;
+    bottom: 0.8em;
+    font-size: 0.8em;
+    left: 20%;
+}
 form {
     display: flex;
     justify-content: center;
@@ -328,7 +342,7 @@ section {
     font-size: 0.9em;
 }
 .social-icon-container img:hover{
-    background-color: #2BD0D0;
+    filter: sepia(100%) saturate(6585%) hue-rotate(125deg);
     cursor: pointer;
 }
 .page-link a:hover{

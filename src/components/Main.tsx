@@ -4,19 +4,24 @@ import shortenUrl from "../services/api"
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
-	const [shortUrl, setShortUrl] = useState<string | undefined>(undefined)
+	const [isInvalid, setIsInvalid] = useState(false)
+	// const [shortUrl, setShortUrl] = useState<string | undefined>(undefined)
 
 	const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
 		e.preventDefault()
 		const { value } = e.currentTarget
 		setUrl(value)
+		setIsInvalid(value.trim() == "")
 	}
 
 	const handleSubmit = async () => {
+		if(!url){
+			setIsInvalid(true)
+		}
 		try {
 			const result = await shortenUrl(url)
-			console.log("Server response:", result )
-			setShortUrl(result)
+			console.log("Server response:", result)
+			// setShortUrl(result)
 		} catch (error) {
 			console.log("Error:", error)
 		}
@@ -27,20 +32,21 @@ const Main = () => {
 				<div className="form-container">
 					<form onSubmit={handleSubmit}>
 						<input
+							className={isInvalid ? "invalid-input" : ""}
 							type="text"
 							name="url"
 							id="url"
 							value={url || ""}
 							onChange={handleOnChange}
 							placeholder="Shorten a link here..."
-							required
 						/>
 						<button type="submit">Shorten it!</button>
 					</form>
+					{isInvalid && <i className="invalid-text">Please add a link</i>}
 				</div>
 				<div className="statistic-container">
 					<div className="statistic-header-container">
-						<h3>{shortUrl}</h3>
+						<h3>Advanced Statistics</h3>
 						<p>
 							Track how your links are performing across the web with <br />
 							our advanced statistics dashboard.

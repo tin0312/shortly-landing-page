@@ -49,7 +49,7 @@ Users should be able to:
 - It is important to select an API that support CORS integrated in your application.
 - Test API endpoint with cCURL to verify the server's behaviours
 - Typescript declaration files for imported modules.
-- 
+- CSS filter function that can apply graphical effect on the input images.
 
 ### Built with
 
