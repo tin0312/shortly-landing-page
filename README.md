@@ -50,6 +50,7 @@ Users should be able to:
 - Test API endpoint with cCURL to verify the server's behaviours
 - Typescript declaration files for imported modules.
 - CSS filter function that can apply graphical effect on the input images.
+- Using nesting , "&" parent selector and variables to make css file more readable and dry.
 
 ### Built with
 
