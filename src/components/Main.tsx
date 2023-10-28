@@ -1,7 +1,6 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import * as Images from "../assets/images"
 import shortenUrl from "../services/api"
-import React from "react"
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
