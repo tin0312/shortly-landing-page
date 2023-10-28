@@ -1,6 +1,7 @@
 import { useState } from "react"
 import * as Images from "../assets/images"
 import shortenUrl from "../services/api"
+import React from "react"
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
@@ -14,7 +15,8 @@ const Main = () => {
 		setIsInvalid(value.trim() == "")
 	}
 
-	const handleSubmit = async () => {
+	const handleSubmit = async (e: React.SyntheticEvent) => {
+		e.preventDefault()
 		if(!url){
 			setIsInvalid(true)
 		}
@@ -30,7 +32,7 @@ const Main = () => {
 		<div className="main-container">
 			<div className="section-container">
 				<div className="form-container">
-					<form onSubmit={handleSubmit}>
+					<form onSubmit={handleSubmit} >
 						<input
 							className={isInvalid ? "invalid-input" : ""}
 							type="text"
