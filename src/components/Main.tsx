@@ -35,6 +35,7 @@ const Main = () => {
 		try {
 			const result = await shortenUrl(url)
 			setShortUrl(result)
+			// Limit entries to 3 input to be displayed.
 			if (linkData.length <= 3) {
 				const id = nanoid()
 				setLinkData((prev) => [...prev, { [id]: { lastSubmitUrl, shortUrl } }])
