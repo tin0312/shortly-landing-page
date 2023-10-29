@@ -1,17 +1,29 @@
 import React, { useState } from "react"
 import * as Images from "../assets/images"
 import shortenUrl from "../services/api"
+import { nanoid } from "nanoid"
+import LinkPairs from "./LinkPairs"
+
+interface LinkData {
+	[id: string]: {
+		lastSubmitUrl?: string
+		shortUrl?: string
+	}
+}
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
 	const [isInvalid, setIsInvalid] = useState(false)
+	const [lastSubmitUrl, setLastSubmitUrl] = useState<string | undefined>(undefined)
 	const [shortUrl, setShortUrl] = useState<string | undefined>(undefined)
+	const [linkData, setLinkData] = useState<LinkData[]>([])
 	const [isCopied, setIsCopied] = useState(false)
 
 	const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
 		e.preventDefault()
 		const { value } = e.currentTarget
 		setUrl(value)
+		setLastSubmitUrl(value)
 		setIsInvalid(value.trim() == "")
 	}
 
@@ -23,6 +35,11 @@ const Main = () => {
 		try {
 			const result = await shortenUrl(url)
 			setShortUrl(result)
+			if (linkData.length <= 3) {
+				const id = nanoid()
+				setLinkData((prev) => [...prev, { [id]: { lastSubmitUrl, shortUrl } }])
+			}
+			setUrl("")
 		} catch (error) {
 			console.log("Error:", error)
 		}
@@ -60,21 +77,15 @@ const Main = () => {
 				</div>
 				<div className="statistic-container">
 					{shortUrl && (
-						<div className="link-container">
-							<div className="original-link">
-								<p> {url}</p>
-							</div>
-							<div className="short-link">
-								<p>{shortUrl}</p>
-								<button
-									onClick={handleCopy}
-									className={isCopied ? "copied-btn" : ""}
-								>
-									{" "}
-									{isCopied ? "Copied!" : "Copy"}{" "}
-								</button>
-							</div>
-						</div>
+						<>
+							<LinkPairs
+								linkData={linkData}
+								handleCopy={handleCopy}
+								lastSubmitUrl={lastSubmitUrl}
+								shortUrl={shortUrl}
+								isCopied={isCopied}
+							/>
+						</>
 					)}
 					<div className="statistic-header-container">
 						<h3>Advanced Statistics</h3>
