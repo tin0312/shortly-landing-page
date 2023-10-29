@@ -78,15 +78,6 @@ html {
     display: none;
 }
 
-.form-container {
-    button {
-        padding: 0.5em 1.5em;
-        border-radius: 0.5em;
-        white-space: nowrap;
-    }
-
-}
-
 .cta-container .cta-message-container button,
 .secondary-cta-container button {
     border-radius: 2em;
@@ -199,8 +190,15 @@ li {
     border-radius: 0.5em;
 
     input {
-        padding: 0.4em 25em 0.4em 1em;
+        padding: 0.7em 0 0.7em 2em;
         border-radius: 0.5em;
+        width: 75%;
+    }
+
+    button {
+        padding: 0.5em 1.5em;
+        border-radius: 0.5em;
+        white-space: nowrap;
     }
 }
 
@@ -217,15 +215,16 @@ li {
 .invalid-text {
     position: absolute;
     color: red;
-    bottom: 0.8em;
+    bottom: 0.4em;
     font-size: 0.8em;
-    left: 20%;
+    left: 10em;
 }
 
 form {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: 2em;
 
     input {
@@ -236,8 +235,11 @@ form {
     }
 }
 
+.statistic-header-container{
+    padding: 1em;
+}
 .statistic-container {
-    padding-top: 8em;
+    padding-top: 6em;
     text-align: center;
     background-color: #EFF1F7;
 
@@ -323,6 +325,54 @@ form {
 
 section {
     text-align: left;
+}
+.link-container{
+    display: flex;
+    justify-content: center;
+    width: $container-width;
+    background-color: #FFF;
+    margin: 0 auto;
+    padding: 1em 0 1em 2em;
+
+    .original-link,
+    .short-link {
+        display: flex;
+        align-items: center;
+        p {
+            padding-top: 0;
+        }
+    }
+    .original-link{
+        flex-basis: 60%;
+        white-space: nowrap;
+        overflow: hidden;
+
+        p{
+            color: #34313D;
+        }
+    }
+    .short-link{
+        flex-basis: 40%;
+        justify-content: space-around;
+        p{
+            color: #2BD0D0;
+        }
+        button {
+            color: #FFF;
+            background-color: $button-color;
+            border-radius: 0.2em;
+            height: 2em;
+            padding: 0 1.5em;  
+
+            &:hover {
+                background-color: $button-hover-color;
+            }
+        }
+        .copied-btn{
+            background-color: #3A3054;
+            color: #FFF;
+        }
+    }
 }
 
 .feature-title {

@@ -1,11 +1,12 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import * as Images from "../assets/images"
 import shortenUrl from "../services/api"
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
 	const [isInvalid, setIsInvalid] = useState(false)
-	// const [shortUrl, setShortUrl] = useState<string | undefined>(undefined)
+	const [shortUrl, setShortUrl] = useState<string | undefined>(undefined)
+	const [isCopied, setIsCopied] = useState(false)
 
 	const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
 		e.preventDefault()
@@ -14,18 +15,31 @@ const Main = () => {
 		setIsInvalid(value.trim() == "")
 	}
 
-	const handleSubmit = async () => {
-		if(!url){
+	const handleSubmit = async (e: React.SyntheticEvent) => {
+		e.preventDefault()
+		if (!url) {
 			setIsInvalid(true)
 		}
 		try {
 			const result = await shortenUrl(url)
-			console.log("Server response:", result)
-			// setShortUrl(result)
+			setShortUrl(result)
 		} catch (error) {
 			console.log("Error:", error)
 		}
 	}
+
+	const handleCopy = async () => {
+		if (shortUrl) {
+			try {
+				setIsCopied(true)
+				await navigator.clipboard.writeText(shortUrl)
+				console.log("Async: Copying to clipboard was successful!")
+			} catch (err) {
+				console.error("Async: Could not copy text: ", err)
+			}
+		}
+	}
+
 	return (
 		<div className="main-container">
 			<div className="section-container">
@@ -45,6 +59,23 @@ const Main = () => {
 					{isInvalid && <i className="invalid-text">Please add a link</i>}
 				</div>
 				<div className="statistic-container">
+					{shortUrl && (
+						<div className="link-container">
+							<div className="original-link">
+								<p> {url}</p>
+							</div>
+							<div className="short-link">
+								<p>{shortUrl}</p>
+								<button
+									onClick={handleCopy}
+									className={isCopied ? "copied-btn" : ""}
+								>
+									{" "}
+									{isCopied ? "Copied!" : "Copy"}{" "}
+								</button>
+							</div>
+						</div>
+					)}
 					<div className="statistic-header-container">
 						<h3>Advanced Statistics</h3>
 						<p>

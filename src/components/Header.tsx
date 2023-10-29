@@ -1,13 +1,6 @@
 import * as Images from "../assets/images"
 import { useState } from "react"
 
-/*
-step 1: create hamburger-icon by using span
-Step 2: attach click event on the hamburger icon to toggle open/close
-Step 3: depending on the navbar open state, display the container to place the elements
-Step 4: if the state is closed then display none, display block otherwise
-Step 5: create and set up click event on the close menu icon
-*/
 const Header = () => {
 	const [isNavBarOpen, setIsNavBarOpen] = useState(false)
 	return (

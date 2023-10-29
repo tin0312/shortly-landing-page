@@ -1,19 +1,17 @@
 const shortenUrl = async (input: string | undefined) => {
 	const apiToken = "Bwnl1I36Eft8Xg2J4YuVBufZoy0HcNwAQdqRPJ8RP7QFA"
-	const apiUrl = "https://shrtlnk.dev/api/v2/link"
-
-	const encodedUrl = input ? encodeURIComponent(input) : undefined
+	const apiUrl = "https://www.shrtlnk.dev/api/v2/link"
 
 	const body = {
-		url: encodedUrl,
+		url: input,
 	}
 
 	try {
 		const response = await fetch(apiUrl, {
 			method: "POST",
 			headers: {
-				"api-key": `${apiToken}`,
-				"Accept": "application/json",
+				"api-key": apiToken,
+				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(body),
