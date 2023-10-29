@@ -1,49 +1,41 @@
 import React from "react"
 
 interface LinkData {
-    [id: string]: {
-      lastSubmitUrl?: string;
-      shortUrl?: string;
-    };
-  }
+	[id: string]: {
+		lastSubmitUrl?: string | undefined
+		shortUrl?: string | undefined
+        isCopied: boolean
+	}
+}
 
-  interface LinkPairsProps {
-    linkData: LinkData[];
-    lastSubmitUrl: string | undefined;
-    shortUrl: string | undefined;
-    handleCopy: () => Promise<void>;
-    isCopied: boolean;
-  }
+interface LinkPairsProps {
+	linkData: LinkData[]
+	handleCopy: (id: string) => Promise<void>
+}
 
-const LinkPairs: React.FC<LinkPairsProps> = ({
-	linkData,
-	handleCopy,
-    lastSubmitUrl,
-	shortUrl,
-	isCopied,
-}) => {
+const LinkPairs: React.FC<LinkPairsProps> = ({ linkData, handleCopy}) => {
+	const linkPairs = linkData.map((pair, index) => {
+		const id = Object.keys(pair)[0]
+		return (
+			<div className="link-container" key={index}>
+				<div className="original-link">
+					<p>{pair[id]?.lastSubmitUrl}</p>
+				</div>
+				<div className="short-link">
+					<p>{pair[id]?.shortUrl}</p>
+					<button
+						onClick={() => handleCopy(id)}
+						className={pair[id].isCopied  ? "copied-btn" : ""}
+					>
+						{pair[id].isCopied ? "Copied!" : "Copy"}
+					</button>
+				</div>
+			</div>
+		)
+	})
 
-    const linkPair = linkData.map((link) => {
-        return (
-            <div className="link-container">
-                <div className="original-link">
-                    <p> {lastSubmitUrl}</p>
-                </div>
-                <div className="short-link">
-                    <p>{shortUrl}</p>
-                    <button onClick={handleCopy} className={isCopied ? "copied-btn" : ""}>
-                        {" "}
-                        {isCopied ? "Copied!" : "Copy"}{" "}
-                    </button>
-                </div>
-            </div>
-        )
-    })
-	return (
-		<>
-            {linkPair}
-        </>
-	)
+	return <>{linkPairs}</>
 }
 
 export default LinkPairs
+

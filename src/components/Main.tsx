@@ -6,24 +6,21 @@ import LinkPairs from "./LinkPairs"
 
 interface LinkData {
 	[id: string]: {
-		lastSubmitUrl?: string
-		shortUrl?: string
+		lastSubmitUrl?: string | undefined
+		shortUrl?: string | undefined
+		isCopied: boolean
 	}
 }
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
 	const [isInvalid, setIsInvalid] = useState(false)
-	const [lastSubmitUrl, setLastSubmitUrl] = useState<string | undefined>(undefined)
-	const [shortUrl, setShortUrl] = useState<string | undefined>(undefined)
 	const [linkData, setLinkData] = useState<LinkData[]>([])
-	const [isCopied, setIsCopied] = useState(false)
 
 	const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
 		e.preventDefault()
 		const { value } = e.currentTarget
 		setUrl(value)
-		setLastSubmitUrl(value)
 		setIsInvalid(value.trim() == "")
 	}
 
@@ -34,11 +31,13 @@ const Main = () => {
 		}
 		try {
 			const result = await shortenUrl(url)
-			setShortUrl(result)
-			// Limit entries to 3 input to be displayed.
-			if (linkData.length <= 3) {
-				const id = nanoid()
-				setLinkData((prev) => [...prev, { [id]: { lastSubmitUrl, shortUrl } }])
+			// Limit entries to 3 inputs to be displayed.
+			if (linkData.length < 3) {
+				const pairId = nanoid()
+				setLinkData((prevPairs) => [
+					...prevPairs,
+					{ [pairId]: { lastSubmitUrl: url, shortUrl: result, isCopied: false } },
+				])
 			}
 			setUrl("")
 		} catch (error) {
@@ -46,14 +45,30 @@ const Main = () => {
 		}
 	}
 
-	const handleCopy = async () => {
-		if (shortUrl) {
-			try {
-				setIsCopied(true)
-				await navigator.clipboard.writeText(shortUrl)
-				console.log("Async: Copying to clipboard was successful!")
-			} catch (err) {
-				console.error("Async: Could not copy text: ", err)
+	const handleCopy = async (id: string) => {
+		// set copied status for corresponding link id
+		setLinkData((prevLinkData) =>
+			prevLinkData.map((pair) => {
+				const pairId = Object.keys(pair)[0]
+				return {
+					[pairId]: {
+						...pair[pairId],
+						isCopied: pairId === id,
+					},
+				}
+			})
+		)
+		// copy to clipboard for corresponding link id
+		const pair = linkData.find((pair) => id && pair[id]?.shortUrl)
+		if (pair) {
+			const shortUrl = pair[id]?.shortUrl
+			if (shortUrl) {
+				try {
+					await navigator.clipboard.writeText(shortUrl)
+					console.log("Async: Copying to clipboard was successful!")
+				} catch (err) {
+					console.error("Async: Could not copy text: ", err)
+				}
 			}
 		}
 	}
@@ -77,16 +92,8 @@ const Main = () => {
 					{isInvalid && <i className="invalid-text">Please add a link</i>}
 				</div>
 				<div className="statistic-container">
-					{shortUrl && (
-						<>
-							<LinkPairs
-								linkData={linkData}
-								handleCopy={handleCopy}
-								lastSubmitUrl={lastSubmitUrl}
-								shortUrl={shortUrl}
-								isCopied={isCopied}
-							/>
-						</>
+					{linkData.length > 0 && (
+						<LinkPairs linkData={linkData} handleCopy={(id) => handleCopy(id)} />
 					)}
 					<div className="statistic-header-container">
 						<h3>Advanced Statistics</h3>
