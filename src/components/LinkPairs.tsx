@@ -17,7 +17,7 @@ const LinkPairs: React.FC<LinkPairsProps> = ({ linkData, handleCopy}) => {
 	const linkPairs = linkData.map((pair, index) => {
 		const id = Object.keys(pair)[0]
 		return (
-			<div className="link-container" key={index}>
+			<div className="mobile:w-4/5 link-container" key={index}>
 				<div className="original-link">
 					<p>{pair[id]?.lastSubmitUrl}</p>
 				</div>

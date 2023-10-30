@@ -26,7 +26,6 @@ html {
     align-items: center;
     margin: 0 auto;
     width: $container-width;
-    min-width: 880px;
     gap: 1.5em;
     padding-top: 3em;
     font-weight: 700;
@@ -123,8 +122,6 @@ li {
     display: flex;
     width: $container-width;
     margin: 5em auto;
-    min-height: 460px;
-    min-width: 880px;
 }
 
 .cta-image-container,
@@ -142,7 +139,6 @@ li {
     }
 
     &.cta-message-container {
-        align-items: flex-start;
         gap: 1em;
     }
 }
@@ -155,7 +151,6 @@ li {
     h1 {
         color: #34313D;
         font-family: 'Poppins', sans-serif;
-        font-size: 3.5em;
         font-weight: 700;
         line-height: 1.3em;
     }
@@ -170,7 +165,6 @@ li {
 .page-container {
     position: relative;
     height: 100vh;
-    min-width: 980px;
 }
 
 .form-container {
@@ -181,7 +175,6 @@ li {
     align-items: center;
     justify-content: center;
     width: 70%;
-    min-width: 880px;
     height: 11%;
     background-image: url('./assets/images/bg-shorten-desktop.svg');
     background-size: cover;
@@ -235,9 +228,10 @@ form {
     }
 }
 
-.statistic-header-container{
+.statistic-header-container {
     padding: 1em;
 }
+
 .statistic-container {
     padding-top: 6em;
     text-align: center;
@@ -326,7 +320,8 @@ form {
 section {
     text-align: left;
 }
-.link-container{
+
+.link-container {
     display: flex;
     justify-content: center;
     width: $container-width;
@@ -339,37 +334,43 @@ section {
     .short-link {
         display: flex;
         align-items: center;
+
         p {
             padding-top: 0;
         }
     }
-    .original-link{
+
+    .original-link {
         flex-basis: 60%;
         white-space: nowrap;
         overflow: hidden;
 
-        p{
+        p {
             color: #34313D;
         }
     }
-    .short-link{
+
+    .short-link {
         flex-basis: 40%;
         justify-content: space-around;
-        p{
+
+        p {
             color: #2BD0D0;
         }
+
         button {
             color: #FFF;
             background-color: $button-color;
             border-radius: 0.2em;
             height: 2em;
-            padding: 0 1.5em;  
+            padding: 0 1.5em;
 
             &:hover {
                 background-color: $button-hover-color;
             }
         }
-        .copied-btn{
+
+        .copied-btn {
             background-color: #3A3054;
             color: #FFF;
         }

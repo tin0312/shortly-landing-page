@@ -4,22 +4,22 @@ import { useState } from "react"
 const Header = () => {
 	const [isNavBarOpen, setIsNavBarOpen] = useState(false)
 	return (
-		<div className="header-container">
-			<div className="navbar-container sm:justify-between">
+		<div className="w-screen header-container mb-3">
+			<div className="mobile:justify-between mobile:w-4/5 navbar-container">
 				<div className="navbar-logo">
 					<img src={Images.logo} alt="logo" />
 				</div>
-				<div className="sm:hidden lg:flex navbar-links">
+				<div className="mobile:hidden desktop:flex navbar-links">
 					<a href="/">Features</a>
 					<a href="/">Pricing</a>
 					<a href="/">Resources</a>
 				</div>
-				<div className="sm:hidden lg:flex navbar-login">
+				<div className="mobile:hidden lg:flex navbar-login">
 					<button>Login</button>
 					<button>Sign Up</button>
 				</div>
 				{/* This section dedicated for hamburger menu */}
-				<section className="mobile-menu flex lg:hidden">
+				<section className="mobile-menu flex desktop:hidden">
 					<div
 						className="hambuger-menu space-y-2"
 						onClick={() => setIsNavBarOpen((prevState) => !prevState)}
@@ -66,10 +66,10 @@ const Header = () => {
 					</div>
 				</section>
 			</div>
-			<div className="cta-container">
-				<div className="cta-message-container">
-					<div className="message-container-control">
-						<h1>
+			<div className="mobile:w-10/12  mobile:flex-col-reverse desktop:flex-row cta-container">
+				<div className="mobile:w-full mobile:items-center desktop:items-start cta-message-container pt-6">
+					<div className="mobile:items-center message-container-control">
+						<h1 className = "mobile:text-4xl desktop:text-5xl">
 							More than just <br />
 							shorter links
 						</h1>
@@ -80,7 +80,7 @@ const Header = () => {
 					</div>
 					<button>Get Started</button>
 				</div>
-				<div className="cta-image-container">
+				<div className="mobile:w-full cta-image-container">
 					<img src={Images.workingIllustration} alt="illustration-working" />
 				</div>
 			</div>
