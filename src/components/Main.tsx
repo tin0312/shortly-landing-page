@@ -108,7 +108,7 @@ const Main = () => {
 						</p>
 					</div>
 
-					<div className="feature-wrapper mobile:flex-col mobile:items-center mobile:gap-20 desktop:gap-6 mobile:w-4/5">
+					<div className="feature-wrapper mobile:flex-col mobile:items-center mobile:gap-20 desktop:gap-6 mobile:w-4/5 mobile:mb-20">
 						<div className="feature-container one">
 							<img src={Images.brand} className="icons" alt="brand" />
 							<section className="text-center">
