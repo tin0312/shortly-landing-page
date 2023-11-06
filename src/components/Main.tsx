@@ -77,7 +77,10 @@ const Main = () => {
 		<div className="main-container">
 			<div className="section-container">
 				<div className="form-container mobile:h-40 mobile:w-4/5 desktop:h-28">
-					<form className = "mobile:flex-col gap-3 desktop:flex-row" onSubmit={handleSubmit}>
+					<form
+						className="mobile:flex-col gap-3 desktop:flex-row"
+						onSubmit={handleSubmit}
+					>
 						<input
 							className={isInvalid ? "invalid-input w-4/5 h-12" : "w-4/5 h-12"}
 							type="text"
@@ -87,7 +90,9 @@ const Main = () => {
 							onChange={handleOnChange}
 							placeholder="Shorten a link here..."
 						/>
-						<button type="submit" className="mobile:w-4/5 h-12">Shorten it!</button>
+						<button type="submit" className="mobile:w-4/5 h-12">
+							Shorten it!
+						</button>
 					</form>
 					{isInvalid && <i className="invalid-text">Please add a link</i>}
 				</div>
@@ -97,46 +102,41 @@ const Main = () => {
 					)}
 					<div className="statistic-header-container flex flex-col mobile:w-9/12 text-center">
 						<h3>Advanced Statistics</h3>
-						<p  className="">
-							Track how your links are performing across the web with
-							our advanced statistics dashboard.
+						<p className="">
+							Track how your links are performing across the web with our advanced
+							statistics dashboard.
 						</p>
 					</div>
 
-					<div className="feature-wrapper">
+					<div className="feature-wrapper mobile:flex-col mobile:items-center mobile:gap-20 desktop:gap-6 mobile:w-4/5">
 						<div className="feature-container one">
 							<img src={Images.brand} className="icons" alt="brand" />
-							<section>
+							<section className="text-center">
 								<h4 className="feature-title">Brand Recognition</h4>
 								<p className="feature-intro">
-									Boost your brand recognition with
-									<br /> each click. Generic links don’t mean a <br /> thing. Branded
-									links help instil <br /> confidence in your content.
+									Boost your brand recognition with each click. Generic links don’t
+									mean a thing. Branded links help instil confidence in your content.
 								</p>
 							</section>
 						</div>
-						<div className="feature-container two">
+						<div className="feature-container two desktop:mt-10">
 							<img src={Images.details} className="icons" alt="details" />
-							<section>
+							<section className="text-center">
 								<h4 className="feature-title">Detailed Records</h4>
 								<p className="feature-intro">
-									Gain insights into who is clicking your
-									<br /> links. Knowing when and where
-									<br /> people engage with your content
-									<br /> helps inform better decisions.
+									Gain insights into who is clicking your links. Knowing when and
+									where people engage with your content helps inform better
+									decisions.
 								</p>
 							</section>
 						</div>
-						<div className="feature-container three">
+						<div className="feature-container three desktop:mt-20">
 							<img src={Images.customizable} className="icons" alt="customizable" />
-							<section>
+							<section className="text-center">
 								<h4 className="feature-title">Fully Customizable</h4>
 								<p className="feature-intro">
-									Improve brand awareness and
-									<br /> content discoverability through
-									<br />
-									customizable links, supercharging
-									<br /> audience engagement.
+									Improve brand awareness and content discoverability through
+									customizable links, supercharging audience engagement.
 								</p>
 							</section>
 						</div>

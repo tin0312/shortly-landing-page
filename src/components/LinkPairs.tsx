@@ -25,7 +25,7 @@ const LinkPairs: React.FC<LinkPairsProps> = ({ linkData, handleCopy}) => {
 					<p>{pair[id]?.shortUrl}</p>
 					<button
 						onClick={() => handleCopy(id)}
-						className={pair[id].isCopied  ? "copied-btn mobile:w-full h-6 mobile:h-10 desktop:h-10" : "mobile:w-full mobile:h-10 desktop:h-10"}
+						className={pair[id].isCopied  ? "copied-btn mobile:w-full h-6 mobile:h-10 desktop:h-10" : "mobile:w-full mobile:h-10 desktop:h-10 des"}
 					>
 						{pair[id].isCopied ? "Copied!" : "Copy"}
 					</button>

@@ -14,6 +14,7 @@ $button-hover-color: #9AE3E3;
 
 html {
     font-family: $font-stack;
+    overflow-x: hidden;
 }
 
 // Header styles
@@ -245,12 +246,8 @@ form {
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin: 5em auto 0;
+    margin: 5em auto 2em;
     width: 70%;
-    // min-width: 880px;
-    height: 50vh;
-    overflow: auto;
-    min-height: 600px;
 }
 
 .feature-container {
@@ -259,7 +256,6 @@ form {
     justify-content: center;
     align-items: center;
     height: 50%;
-    width: 26%;
     min-width: 200px;
     min-height: 320px;
     padding: 2em 1.2em 2em 1.2em;
@@ -275,7 +271,7 @@ form {
             top: 50%;
             background-color: #2BD0D0;
             height: 0.5em;
-            width: 42.2%;
+            width: 1.5em;
             transform: translateY(-50%);
         }
 
@@ -287,17 +283,33 @@ form {
             right: 100%;
         }
     }
+}
 
-    &.one {
-        margin-top: 6em;
-    }
+@media only screen and (min-width: 390px) and (max-width: 980px) {
+    .feature-container {
+        &:nth-child(2) {
 
-    &.two {
-        align-self: center;
-    }
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: auto;
+                background-color: #2BD0D0;
+                height: 5em;
+                width: 0.4em;
+                transform: translateX(-50%);
+            }
 
-    &.three {
-        margin-top: 11em;
+            &::before {
+                top: 100%;
+            }
+
+            &::after {
+                bottom: 100%;
+            }
+        }
+
     }
 }
 
@@ -308,10 +320,13 @@ form {
     background-color: #3A3054;
     padding: 0.6em;
     border-radius: 50%;
+    z-index: 100;
 }
-
-section {
-    text-align: left;
+@media only screen and (min-width: 390px) and (max-width: 980px){
+    .icons{
+        left: 50%;
+        transform: translateX(-50%);      
+    }
 }
 
 .link-container {
@@ -324,7 +339,6 @@ section {
 
     .original-link,
     .short-link {
-        // align-items: center;
 
         p {
             padding-top: 0;
@@ -367,8 +381,8 @@ section {
     }
 }
 
-@media only screen and (max-width: 441px) {
-    .short-link{
+@media only screen and (max-width: 390px) {
+    .short-link {
         border-top: 1px solid #9E9AA8;
     }
 }
@@ -421,7 +435,6 @@ section {
     gap: 3em;
     color: #FFF;
     width: $container-width;
-    // min-width: 900px;
     overflow: auto;
     padding-top: 4em;
     padding-bottom: 4em;

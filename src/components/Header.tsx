@@ -78,7 +78,7 @@ const Header = () => {
 							insights on how your links are performing.
 						</p>
 					</div>
-					<button>Get Started</button>
+					<button className="mobile:w-5/12 mobile:h-14 mobile:mb-10">Get Started</button>
 				</div>
 				<div className="mobile:w-11/12 mobile:self-end cta-image-container">
 					<img src={Images.workingIllustration} alt="illustration-working" />
