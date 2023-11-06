@@ -66,21 +66,21 @@ const Header = () => {
 					</div>
 				</section>
 			</div>
-			<div className="mobile:w-10/12  mobile:flex-col-reverse desktop:flex-row cta-container">
+			<div className="mobile:w-full mobile:flex-col-reverse desktop:flex-row cta-container">
 				<div className="mobile:w-full mobile:items-center desktop:items-start cta-message-container pt-6">
 					<div className="mobile:items-center message-container-control">
 						<h1 className = "mobile:text-4xl desktop:text-5xl">
 							More than just <br />
 							shorter links
 						</h1>
-						<p>
+						<p className="mobile:text-center mobile:pb-2 w-3/4">
 							Build your brand’s recognition and get detailed
-							<br /> insights on how your links are performing.
+							insights on how your links are performing.
 						</p>
 					</div>
 					<button>Get Started</button>
 				</div>
-				<div className="mobile:w-full cta-image-container">
+				<div className="mobile:w-11/12 mobile:self-end cta-image-container">
 					<img src={Images.workingIllustration} alt="illustration-working" />
 				</div>
 			</div>

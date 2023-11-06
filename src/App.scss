@@ -162,10 +162,6 @@ li {
 }
 
 // main-container
-.page-container {
-    position: relative;
-    height: 100vh;
-}
 
 .form-container {
     position: absolute;
@@ -175,7 +171,6 @@ li {
     align-items: center;
     justify-content: center;
     width: 70%;
-    height: 11%;
     background-image: url('./assets/images/bg-shorten-desktop.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -185,7 +180,6 @@ li {
     input {
         padding: 0.7em 0 0.7em 2em;
         border-radius: 0.5em;
-        width: 75%;
     }
 
     button {
@@ -208,9 +202,9 @@ li {
 .invalid-text {
     position: absolute;
     color: red;
-    bottom: 0.4em;
+    bottom: 0;
     font-size: 0.8em;
-    left: 10em;
+    left: 1em;
 }
 
 form {
@@ -218,7 +212,6 @@ form {
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 2em;
 
     input {
         &::placeholder {
@@ -234,7 +227,6 @@ form {
 
 .statistic-container {
     padding-top: 6em;
-    text-align: center;
     background-color: #EFF1F7;
 
     h3 {
@@ -255,8 +247,9 @@ form {
     justify-content: space-between;
     margin: 5em auto 0;
     width: 70%;
-    min-width: 880px;
+    // min-width: 880px;
     height: 50vh;
+    overflow: auto;
     min-height: 600px;
 }
 
@@ -322,7 +315,6 @@ section {
 }
 
 .link-container {
-    display: flex;
     justify-content: center;
     width: $container-width;
     background-color: #FFF;
@@ -332,8 +324,7 @@ section {
 
     .original-link,
     .short-link {
-        display: flex;
-        align-items: center;
+        // align-items: center;
 
         p {
             padding-top: 0;
@@ -362,7 +353,6 @@ section {
             color: #FFF;
             background-color: $button-color;
             border-radius: 0.2em;
-            height: 2em;
             padding: 0 1.5em;
 
             &:hover {
@@ -374,6 +364,12 @@ section {
             background-color: #3A3054;
             color: #FFF;
         }
+    }
+}
+
+@media only screen and (max-width: 441px) {
+    .short-link{
+        border-top: 1px solid #9E9AA8;
     }
 }
 
@@ -425,7 +421,8 @@ section {
     gap: 3em;
     color: #FFF;
     width: $container-width;
-    min-width: 900px;
+    // min-width: 900px;
+    overflow: auto;
     padding-top: 4em;
     padding-bottom: 4em;
 }

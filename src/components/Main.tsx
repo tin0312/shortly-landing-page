@@ -76,10 +76,10 @@ const Main = () => {
 	return (
 		<div className="main-container">
 			<div className="section-container">
-				<div className="form-container">
-					<form onSubmit={handleSubmit}>
+				<div className="form-container mobile:h-40 mobile:w-4/5 desktop:h-28">
+					<form className = "mobile:flex-col gap-3 desktop:flex-row" onSubmit={handleSubmit}>
 						<input
-							className={isInvalid ? "invalid-input" : ""}
+							className={isInvalid ? "invalid-input w-4/5 h-12" : "w-4/5 h-12"}
 							type="text"
 							name="url"
 							id="url"
@@ -87,18 +87,18 @@ const Main = () => {
 							onChange={handleOnChange}
 							placeholder="Shorten a link here..."
 						/>
-						<button type="submit">Shorten it!</button>
+						<button type="submit" className="mobile:w-4/5 h-12">Shorten it!</button>
 					</form>
 					{isInvalid && <i className="invalid-text">Please add a link</i>}
 				</div>
-				<div className="statistic-container">
+				<div className="statistic-container flex flex-col items-center">
 					{linkData.length > 0 && (
 						<LinkPairs linkData={linkData} handleCopy={(id) => handleCopy(id)} />
 					)}
-					<div className="statistic-header-container">
+					<div className="statistic-header-container flex flex-col mobile:w-9/12 text-center">
 						<h3>Advanced Statistics</h3>
-						<p>
-							Track how your links are performing across the web with <br />
+						<p  className="">
+							Track how your links are performing across the web with
 							our advanced statistics dashboard.
 						</p>
 					</div>
