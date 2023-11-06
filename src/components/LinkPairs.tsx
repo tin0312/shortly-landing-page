@@ -18,7 +18,7 @@ const LinkPairs: React.FC<LinkPairsProps> = ({ linkData, handleCopy}) => {
 		const id = Object.keys(pair)[0]
 		return (
 			<div className="mobile:w-4/5 mobile:pl-3 mobile:pr-3 mobile:h-36 link-container flex mobile:flex-col desktop:flex-row" key={index}>
-				<div className="original-link">
+				<div className="original-link flex desktop:items-center">
 					<p>{pair[id]?.lastSubmitUrl}</p>
 				</div>
 				<div className="short-link flex mobile:flex-col desktop:flex-row mobile:items-start desktop:items-center mobile:gap-3 mobile:pt-1">

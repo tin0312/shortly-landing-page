@@ -14,8 +14,10 @@ interface LinkData {
 
 const Main = () => {
 	const [url, setUrl] = useState<string | undefined>(undefined)
-	const [isInvalid, setIsInvalid] = useState(false)
+	const [isInvalid, setIsInvalid] = useState<boolean>(false)
+	const [isFull, setIsFull] = useState<boolean>(false)
 	const [linkData, setLinkData] = useState<LinkData[]>([])
+	const [message, setMessage] = useState<string | undefined>(undefined)
 
 	const handleOnChange = (e: React.FormEvent<HTMLInputElement>) => {
 		e.preventDefault()
@@ -26,22 +28,31 @@ const Main = () => {
 
 	const handleSubmit = async (e: React.SyntheticEvent) => {
 		e.preventDefault()
-		if (!url) {
+		// when !url, there are less than 3 inputs
+		if (!url && !isFull) {
 			setIsInvalid(true)
-		}
-		try {
-			const result = await shortenUrl(url)
-			// Limit entries to 3 inputs to be displayed.
-			if (linkData.length < 3) {
-				const pairId = nanoid()
-				setLinkData((prevPairs) => [
-					...prevPairs,
-					{ [pairId]: { lastSubmitUrl: url, shortUrl: result, isCopied: false } },
-				])
+			setMessage("Please add a link")
+		} else if (isFull) {
+			setLinkData([])
+			setIsFull(false)
+		} else {
+			try {
+				const result = await shortenUrl(url)
+				// Limit entries to 3 inputs to be displayed.
+				if (linkData.length < 3) {
+					const pairId = nanoid()
+					setLinkData((prevPairs) => [
+						...prevPairs,
+						{ [pairId]: { lastSubmitUrl: url, shortUrl: result, isCopied: false } },
+					])
+				} else {
+					window.alert("Clear previous search!")
+					setIsFull(true)
+				}
+				setUrl("")
+			} catch (error) {
+				console.log("Error:", error)
 			}
-			setUrl("")
-		} catch (error) {
-			console.log("Error:", error)
 		}
 	}
 
@@ -90,11 +101,11 @@ const Main = () => {
 							onChange={handleOnChange}
 							placeholder="Shorten a link here..."
 						/>
-						<button type="submit" className="mobile:w-4/5 h-12">
-							Shorten it!
+						<button type="submit" className={`mobile:w-4/5 h-12 ${isFull ? "reset-btn" : ""}`}>
+							{isFull ? "Reset" : "Shorten it!"}
 						</button>
 					</form>
-					{isInvalid && <i className="invalid-text">Please add a link</i>}
+					{isInvalid && <i className="invalid-text">{message}</i>}
 				</div>
 				<div className="statistic-container flex flex-col items-center">
 					{linkData.length > 0 && (
@@ -102,7 +113,7 @@ const Main = () => {
 					)}
 					<div className="statistic-header-container flex flex-col mobile:w-9/12 text-center">
 						<h3>Advanced Statistics</h3>
-						<p className="">
+						<p>
 							Track how your links are performing across the web with our advanced
 							statistics dashboard.
 						</p>
@@ -111,7 +122,7 @@ const Main = () => {
 					<div className="feature-wrapper mobile:flex-col mobile:items-center mobile:gap-20 desktop:gap-6 mobile:w-4/5 mobile:mb-20">
 						<div className="feature-container one">
 							<img src={Images.brand} className="icons" alt="brand" />
-							<section className="text-center">
+							<section className="mobile:text-center">
 								<h4 className="feature-title">Brand Recognition</h4>
 								<p className="feature-intro">
 									Boost your brand recognition with each click. Generic links don’t
@@ -121,7 +132,7 @@ const Main = () => {
 						</div>
 						<div className="feature-container two desktop:mt-10">
 							<img src={Images.details} className="icons" alt="details" />
-							<section className="text-center">
+							<section className="mobile:text-center">
 								<h4 className="feature-title">Detailed Records</h4>
 								<p className="feature-intro">
 									Gain insights into who is clicking your links. Knowing when and
@@ -132,7 +143,7 @@ const Main = () => {
 						</div>
 						<div className="feature-container three desktop:mt-20">
 							<img src={Images.customizable} className="icons" alt="customizable" />
-							<section className="text-center">
+							<section className="mobile:text-center">
 								<h4 className="feature-title">Fully Customizable</h4>
 								<p className="feature-intro">
 									Improve brand awareness and content discoverability through
