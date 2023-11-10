@@ -83,13 +83,12 @@ const Main = () => {
 			}
 		}
 	}
-
 	return (
 		<div className="main-container">
 			<div className="section-container">
-				<div className="form-container mobile:h-40 mobile:w-4/5 desktop:h-28">
+				<div className="form-container absolute left-1/2 mobile:h-40 mobile:w-4/5 desktop:h-28 flex bg-no-repeat bg-cover ">
 					<form
-						className="mobile:flex-col gap-3 desktop:flex-row"
+						className="mobile:flex-col gap-3 desktop:flex-row justify-center items-center flex"
 						onSubmit={handleSubmit}
 					>
 						<input
@@ -101,26 +100,33 @@ const Main = () => {
 							onChange={handleOnChange}
 							placeholder="Shorten a link here..."
 						/>
-						<button type="submit" className={`mobile:w-4/5 h-12 ${isFull ? "reset-btn" : ""}`}>
+						<button
+							type="submit"
+							className={`mobile:w-4/5 h-12 ${isFull ? "reset-btn" : ""}`}
+						>
 							{isFull ? "Reset" : "Shorten it!"}
 						</button>
 					</form>
-					{isInvalid && <i className="invalid-text">{message}</i>}
+					{isInvalid && (
+						<i className="invalid-text absolute bottom-0 text-red-500 left-3 text-sm">
+							{message}
+						</i>
+					)}
 				</div>
-				<div className="statistic-container flex flex-col items-center">
+				<div className="flex statistic-container flex-col items-center pt-24">
 					{linkData.length > 0 && (
 						<LinkPairs linkData={linkData} handleCopy={(id) => handleCopy(id)} />
 					)}
-					<div className="statistic-header-container flex flex-col mobile:w-9/12 text-center">
-						<h3>Advanced Statistics</h3>
-						<p>
+					<div className="statistic-header-container flex flex-col mobile:w-9/12 text-center p-5 items-center">
+						<h3 className="font-bold text-4xl">Advanced Statistics</h3>
+						<p className="pt-7 font-medium desktop:w-4/6 desktop:text-center">
 							Track how your links are performing across the web with our advanced
 							statistics dashboard.
 						</p>
 					</div>
 
-					<div className="feature-wrapper mobile:flex-col mobile:items-center mobile:gap-20 desktop:gap-6 mobile:w-4/5 mobile:mb-20">
-						<div className="feature-container one">
+					<div className="feature-wrapper flex mobile:flex-col mobile:items-center mobile:gap-20 desktop:gap-6 mobile:w-4/5 mobile:mb-20">
+						<div className="feature-container one relative flex items-center justify-center">
 							<img src={Images.brand} className="icons" alt="brand" />
 							<section className="mobile:text-center">
 								<h4 className="feature-title">Brand Recognition</h4>
@@ -130,7 +136,7 @@ const Main = () => {
 								</p>
 							</section>
 						</div>
-						<div className="feature-container two desktop:mt-10">
+						<div className="feature-container two relative flex items-center justify-center desktop:mt-10">
 							<img src={Images.details} className="icons" alt="details" />
 							<section className="mobile:text-center">
 								<h4 className="feature-title">Detailed Records</h4>
@@ -141,7 +147,7 @@ const Main = () => {
 								</p>
 							</section>
 						</div>
-						<div className="feature-container three desktop:mt-20">
+						<div className="feature-container three relative flex items-center justify-center desktop:mt-20">
 							<img src={Images.customizable} className="icons" alt="customizable" />
 							<section className="mobile:text-center">
 								<h4 className="feature-title">Fully Customizable</h4>
@@ -153,8 +159,10 @@ const Main = () => {
 						</div>
 					</div>
 				</div>
-				<div className="secondary-cta-container">
-					<h3>Boost your links today</h3>
+				<div className="secondary-cta-container flex flex-col justify-center items-center gap-6 bg-no-repeat bg-cover text-white">
+					<h3 className="text-2xl font-bold tracking-tighter">
+						Boost your links today
+					</h3>
 					<button>Get Started</button>
 				</div>
 			</div>

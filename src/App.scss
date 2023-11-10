@@ -14,29 +14,19 @@ $button-hover-color: #9AE3E3;
 
 html {
     font-family: $font-stack;
-    overflow-x: hidden;
 }
 
-// Header styles
-.header-container {
-    padding-bottom: 0.1em;
-}
-
+/*
+=============
+Navigation bar
+==============
+*/
 .navbar-container {
-    display: flex;
-    align-items: center;
     margin: 0 auto;
     width: $container-width;
-    gap: 1.5em;
-    padding-top: 3em;
-    font-weight: 700;
 }
 
 .navbar-links {
-    align-items: center;
-    gap: 1em;
-    margin-right: auto;
-
     a {
         color: #9E9AA8;
 
@@ -44,43 +34,6 @@ html {
             color: #34313D;
         }
     }
-}
-
-.navbar-login {
-    align-items: center;
-    gap: 1em;
-
-    button {
-        border-radius: 2em;
-        padding: 0.1em 0.7em;
-    }
-}
-
-// Hamburger Menu
-.show-menu {
-    position: absolute;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #3A3054;
-    color: white;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow: scroll;
-    border-radius: 0.8em;
-}
-.mobile-login-container{
-    border-top: 1px solid rgba(158, 154, 168, 0.25);
-}
-.hide-menu {
-    display: none;
-}
-
-.cta-container .cta-message-container button,
-.secondary-cta-container button {
-    border-radius: 2em;
-    padding: 0.5em 1em;
 }
 
 .navbar-container,
@@ -93,6 +46,47 @@ html {
     }
 }
 
+li {
+    .sign-up {
+        button {
+            background-color: $button-color;
+            padding: 0.5em 3em;
+            border-radius: 2em;
+        }
+    }
+}
+
+.navbar-login {
+    button {
+        border-radius: 2em;
+        padding: 0.1em 0.7em;
+    }
+}
+
+/*
+==============
+Hamburger menu
+===============
+*/
+.show-menu {
+    background-color: #3A3054;
+}
+
+.mobile-login-container {
+    border-top: 1px solid rgba(158, 154, 168, 0.25);
+}
+
+.cta-container .cta-message-container button,
+.secondary-cta-container button {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+/*
+========
+Buttons
+========
+*/
 .navbar-login :nth-child(2),
 .cta-container .cta-message-container button,
 .secondary-cta-container button,
@@ -105,36 +99,24 @@ html {
     }
 }
 
-.reset-btn{
+.reset-btn {
     background-color: #3A3054 !important;
     color: #FFF;
 
 }
 
-li {
-    .sign-up {
-        button {
-            background-color: $button-color;
-            color: #FFFFFF;
-            padding: 0.5em 3em;
-            border-radius: 2em;
-        }
-    }
-}
-
-
+/*
+=============================
+Call to action header section
+==============================
+*/
 .cta-container {
-    display: flex;
     width: $container-width;
     margin: 5em auto;
 }
 
 .cta-image-container,
 .cta-message-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
     width: 50vw;
 
     &.cta-image-container {
@@ -142,21 +124,12 @@ li {
             height: 90%;
         }
     }
-
-    &.cta-message-container {
-        gap: 1em;
-    }
 }
 
 .message-container-control {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-
     h1 {
         color: #34313D;
         font-family: 'Poppins', sans-serif;
-        font-weight: 700;
         line-height: 1.3em;
     }
 
@@ -166,19 +139,16 @@ li {
     }
 }
 
-// main-container
+/*
+==============
+Main-Container
+==============
+*/
 
 .form-container {
-    position: absolute;
-    left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 70%;
     background-image: url('./assets/images/bg-shorten-desktop.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
     background-color: #3A3054;
     border-radius: 0.5em;
 
@@ -190,32 +160,19 @@ li {
     button {
         padding: 0.5em 1.5em;
         border-radius: 0.5em;
-        white-space: nowrap;
     }
 }
 
 
 .invalid-input {
     border: 1px solid red;
-    color: red;
 
     &::placeholder {
         color: red;
     }
 }
 
-.invalid-text {
-    position: absolute;
-    color: red;
-    bottom: 0;
-    font-size: 0.8em;
-    left: 1em;
-}
-
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
 
     input {
@@ -226,41 +183,26 @@ form {
     }
 }
 
-.statistic-header-container {
-    padding: 1em;
-}
-
+/*
+=================
+Statistic-Section
+=================
+*/
 .statistic-container {
-    padding-top: 6em;
     background-color: #EFF1F7;
 
-    h3 {
-        font-size: 40px;
-        font-weight: 700;
-    }
-
     p {
-        padding-top: 1em;
         color: #9E9AA8;
-        font-weight: 500;
     }
 }
 
 .feature-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
     margin: 5em auto 2em;
     width: 70%;
 }
 
 .feature-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 50%;
-    min-width: 200px;
     min-height: 320px;
     padding: 2em 1.2em 2em 1.2em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -317,6 +259,25 @@ form {
     }
 }
 
+.feature-title {
+    font-weight: 700;
+    color: #333;
+    font-size: 1.3em;
+}
+
+.feature-intro {
+    font-size: 1em;
+    line-height: 1.8em;
+    color: #9E9AA8;
+    font-weight: 500;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
 .icons {
     position: absolute;
     top: -2.3em;
@@ -326,28 +287,24 @@ form {
     border-radius: 50%;
     z-index: 100;
 }
-@media only screen and (min-width: 390px) and (max-width: 980px){
-    .icons{
+
+@media only screen and (min-width: 390px) and (max-width: 980px) {
+    .icons {
         left: 50%;
-        transform: translateX(-50%);      
+        transform: translateX(-50%);
     }
 }
 
+/*
+============
+Link-Section
+============
+*/
 .link-container {
-    justify-content: center;
     width: $container-width;
     background-color: #FFF;
     margin: 0 auto;
     padding: 1em 0 1em 2em;
-    margin-bottom: 1em;
-
-    .original-link,
-    .short-link {
-
-        p {
-            padding-top: 0;
-        }
-    }
 
     .original-link {
         flex-basis: 60%;
@@ -361,7 +318,6 @@ form {
 
     .short-link {
         flex-basis: 40%;
-        justify-content: space-around;
 
         p {
             color: #2BD0D0;
@@ -391,62 +347,31 @@ form {
     }
 }
 
-.feature-title {
-    font-style: normal;
-    font-weight: 700;
-    color: #333;
-    font-size: 1.3em;
-}
-
-.feature-intro {
-    font-size: 1em;
-    line-height: 1.8em;
-    color: #9E9AA8;
-    font-weight: 500;
-}
-
+/*
+=============================
+Second Call To Action section
+=============================
+*/
 .secondary-cta-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5em;
     height: 20vh;
     background-image: url(./assets/images/bg-boost-desktop.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
     background-color: #3A3054;
-    color: #FFF;
-
-    h3 {
-        font-size: 1.5em;
-        font-weight: 700;
-        letter-spacing: -0.05em;
-    }
 }
 
-// Footer
+/*
+=======
+Footer
+========
+*/
 .footer-wrapper {
     background-color: #232127;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 3em;
-    color: #FFF;
     width: $container-width;
-    overflow: auto;
-    padding-top: 4em;
-    padding-bottom: 4em;
 }
 
 .page-links {
-    display: flex;
-    gap: 7em;
 
     .page-link {
         display: flex;
@@ -473,9 +398,6 @@ form {
 }
 
 .social-icon-container {
-    display: flex;
-    gap: 1.5em;
-
     a {
         img {
             &:hover {

@@ -6,7 +6,7 @@ import Main from "./components/Main"
 function App() {
 	return (
 		<>
-			<div className="page-container">
+			<div className="page-container overflow-hidden">
 				<Header />
 				<Main />
 				<Footer />
