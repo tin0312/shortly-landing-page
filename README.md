@@ -28,12 +28,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./src/assets/images/pageScreenshot.png)
 
 ### Links
 
-- Solution URL: [Github Repo]()
-- Live Site URL: [Live Site](dev--fabulous-halva-a59029.netlify.app/)
+- Solution URL: [Github Repo](https://github.com/tin0312/shortly-landing-page)
+- Live Site URL: [Live Site](https://creative-platypus-cfe223.netlify.app/)
 
 ## My process
 
@@ -61,10 +61,14 @@ Users should be able to:
 5. Create and set up a click event on the close menu icon.
 
 - Using `curl -I https://shrtlnk.dev/api/v2/link` to inspect the location header from the api endpoint server when making a HTTP request.
+- Using tailwind first utility class to improve cde performance.
+-  Using typescript to statically declare types for variables and functions.
 
 ### Built with
 
 - HTML
+- React
+- Typescript
 - Tailwind
 - Sass
 - [React](https://reactjs.org/) - JS library
